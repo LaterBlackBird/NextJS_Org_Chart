@@ -1,0 +1,14 @@
+.td {
+  padding: 5px;
+  border: var(--org-border);
+  text-align: center;
+}
+
+thead .td {
+  height: 1.5em;
+}
+
+.tableDataChildren {
+  display: flex;
+  justify-content: space-evenly;
+}

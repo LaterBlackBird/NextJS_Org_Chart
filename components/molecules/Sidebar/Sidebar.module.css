@@ -1,0 +1,28 @@
+.sidebar {
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    justify-content: left;
+    font-size: .75em;
+}
+
+.active {
+    font-weight: bold;
+    background-color: #1B2431;
+}
+
+.navlink{
+    color: white;
+    font-family: inherit;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.subNav {
+    padding-left: 10px;
+}
+
+.navlink:visited{
+    color: white;
+}

@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Delivery",
+        "isActive": "true",
+        "id": 1,
+        "dateCreated": "2022-05-18T19:35:54.731Z",
+        "dateUpdated": "2022-05-18T19:42:46.358Z"
+    },
+    {
+        "name": "Bench",
+        "isActive": "true",
+        "id": 2,
+        "dateCreated": "2022-05-18T19:44:15.443Z",
+        "dateUpdated": "2022-05-18T19:44:15.443Z"
+    }
+]
