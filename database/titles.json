@@ -2,14 +2,14 @@
     {
         "id": 1,
         "isActive": "true",
-        "name": "Delivery",
+        "name": "CEO",
         "dateCreated": "2022-05-18T19:35:54.731Z",
         "dateUpdated": "2022-05-18T19:42:46.358Z"
     },
     {
         "id": 2,
         "isActive": "true",
-        "name": "Bench",
+        "name": "Delivery Manager",
         "dateCreated": "2022-05-18T19:44:15.443Z",
         "dateUpdated": "2022-05-18T19:44:15.443Z"
     }
