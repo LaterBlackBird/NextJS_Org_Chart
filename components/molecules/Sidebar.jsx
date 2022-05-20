@@ -10,10 +10,15 @@ const Sidebar = () => {
   return (
     <div className={styles.sidebar}>
       <Navlink destination="/" label='Org Chart' />
+
       <Navlink destination="/employees" label='Employees' />
-        {path === '/employees' &&
-          <Navlink destination="/employees/form" label='Create Employee' />
-        }
+      {path.includes('/employees') && 
+        <Navlink 
+          destination="/employees/form" 
+          label='Create Employee'
+          id='subnav' 
+        />
+      }
 
       <Navlink 
         destination="/departments" 
@@ -29,9 +34,13 @@ const Sidebar = () => {
       }
 
       <Navlink destination="/titles" label='Job Titles' />
-        {path === '/titles' &&
-          <Navlink destination="/titles/form" label='Create Job Title' />
-        }
+      {path.includes('/titles') && 
+        <Navlink 
+          destination="/titles/form" 
+          label='Create Job Title'
+          id='subnav' 
+        />
+      }
     </div>
   );
 };
