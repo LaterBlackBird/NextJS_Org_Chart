@@ -1,14 +1,13 @@
 import React from 'react'
-import styles from './InputField.module.css'
-import Input from '../../atoms/Input/Input'
-import Label from '../../atoms/Label/Label'
+import styles from '../../styles/InputField.module.css'
+import Input from '../atoms/Input'
+import Label from '../atoms/Label'
 
 const InputField = ({ text, value, onChange, name, testID, placeholder }) => {
   return (
     <div className={styles.inputField}>
-      <Label
-        text={text}
-        children={
+      <Label>
+        {text}
           <Input 
             type='text'
             onChange={onChange}
@@ -17,8 +16,7 @@ const InputField = ({ text, value, onChange, name, testID, placeholder }) => {
             placeholder={placeholder}
             value={value}
           />
-        }
-      />
+      </Label>
     </div>
   )
 }
