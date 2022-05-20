@@ -1,11 +1,14 @@
 import Layout from '../components/molecules/Layout'
+import { ToastProvider } from 'react-toast-notifications'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
   return (
-  <Layout>
-    <Component {...pageProps} />
-  </Layout>
+    <ToastProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+  </ToastProvider>
   )
 }
 
