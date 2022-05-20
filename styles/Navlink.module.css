@@ -1,0 +1,30 @@
+.navlink {
+  color: var(--text-color);
+  font-family: inherit;
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 0 5px 5px 0;
+}
+
+.active {
+  padding-left: 10px;
+  background-color: var(--main-background-color-dark);
+}
+
+#subnav::before{
+  content: '';
+  border-left: 1px solid white;
+  border-bottom: 1px solid white;
+  margin: auto 0;
+  position: relative;
+  bottom: 25%;
+  padding-left: 5px;
+  margin-right: 5px;
+  display: inline-block;
+  height: 10px;
+}
+
+#subnav {
+  padding-left: 20px;
+}
+

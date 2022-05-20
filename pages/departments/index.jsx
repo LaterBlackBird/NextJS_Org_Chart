@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import styles from '../../styles/Departments.module.css'
 
 const Departments = () => {
   return (
-    <div>Departments</div>
+    <div className={styles.departments}>Departments</div>
   )
 }
 
