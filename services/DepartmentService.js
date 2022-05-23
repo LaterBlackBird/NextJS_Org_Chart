@@ -23,5 +23,5 @@ export const updateDepartment = (department) => {
 }
 
 export const deleteDepartment = (departmentId) => {
-    doDelete(`${serviceUrl}/${departmentId}`)
+    return doDelete(`${serviceUrl}/${departmentId}`)
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import styles from '../../styles/Departments.module.css'
 import Table from '../../components/atoms/Table';
 import DepartmentTableHead from '../../components/molecules/DepartmentTableHead';
@@ -8,19 +9,22 @@ import LoadingWheel from '../../components/atoms/LoadingWheel';
 import { getActiveDepartments, deleteDepartment } from '../../services/DepartmentService';
 
 
-export const getStaticProps = async () => {
-  const res = await getActiveDepartments();
-  console.log('static props')
-  console.log(res);
-  // const data = await res.json();
+export const getServerSideProps = async () => {
+  const data = await getActiveDepartments();
 
   return {
-    props: { departments: res}
+    props: { departments: data}
   }
 }
 
 const Departments = ({ departments }) => {
+  const router = useRouter();
   const [showLoadingWheel, setShowLoadingWheel] = useState(false);
+
+
+  const refreshData = () => {
+    router.replace(router.asPath);
+  }
 
   return (
     <div className={styles.departments}>
@@ -28,7 +32,7 @@ const Departments = ({ departments }) => {
       <Table>
         <>
           <DepartmentTableHead />
-          <DepartmentTableBody departments={departments} setShowLoadingWheel={setShowLoadingWheel}/>
+          <DepartmentTableBody departments={departments} setShowLoadingWheel={setShowLoadingWheel} refreshData={refreshData}/>
         </>
       </Table>
     </div>

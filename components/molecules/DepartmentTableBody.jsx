@@ -5,8 +5,7 @@ import TableBody from '../atoms/TableBody';
 import DepartmentRow from './DepartmentRow';
 
 
-const DepartmentTableBody = ({ departments, setShowLoadingWheel }) => {
-  // const [departments, setDepartments] = useState([]);
+const DepartmentTableBody = ({ departments, setShowLoadingWheel, refreshData }) => {
   const { addToast } = useToasts();
 
   const showToast = (content, appearance) => {
@@ -16,31 +15,19 @@ const DepartmentTableBody = ({ departments, setShowLoadingWheel }) => {
     });
   };
 
-  const loadActiveDepts = async () => {
-    setShowLoadingWheel(true);
-    const getActive = await getActiveDepartments();
-    setDepartments(getActive);
-    setShowLoadingWheel(false);
-  };
-
   const deleteDept = useCallback( 
     async (deptId) => {
       try {
         setShowLoadingWheel(true);
-        await deleteDepartment(deptId);
+        await deleteDepartment(deptId)
+        await refreshData();
         showToast('Department Deleted','success');
-        loadActiveDepts();
         setShowLoadingWheel(false);
       } catch (error) {
         showToast(error.message, 'error');
       }
     }
   , []);
-
-  // useEffect(() => {
-  //   loadActiveDepts();
-  // },[]);
-
     
   return (
     <TableBody>
