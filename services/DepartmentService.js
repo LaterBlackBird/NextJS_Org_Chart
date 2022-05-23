@@ -18,8 +18,8 @@ export const createDepartment = (department) => {
     return doPost(serviceUrl, department);
 }
 
-export const updateDepartment = (department) => {
-    return doPut(serviceUrl, department)
+export const updateDepartment = (id, department) => {
+    return doPut(`${serviceUrl}/${id}`, department)
 }
 
 export const deleteDepartment = (departmentId) => {
