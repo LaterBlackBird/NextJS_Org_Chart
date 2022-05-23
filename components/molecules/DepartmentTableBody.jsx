@@ -4,13 +4,9 @@ import { useToasts } from 'react-toast-notifications';
 import TableBody from '../atoms/TableBody';
 import DepartmentRow from './DepartmentRow';
 
-export const getStaticProps = async () => {
-  const res = await fetch()
-}
 
-
-const DepartmentTableBody = ({ setShowLoadingWheel }) => {
-  const [departments, setDepartments] = useState([]);
+const DepartmentTableBody = ({ departments, setShowLoadingWheel }) => {
+  // const [departments, setDepartments] = useState([]);
   const { addToast } = useToasts();
 
   const showToast = (content, appearance) => {
@@ -41,9 +37,10 @@ const DepartmentTableBody = ({ setShowLoadingWheel }) => {
     }
   , []);
 
-  useEffect(() => {
-    loadActiveDepts();
-  },[]);
+  // useEffect(() => {
+  //   loadActiveDepts();
+  // },[]);
+
     
   return (
     <TableBody>

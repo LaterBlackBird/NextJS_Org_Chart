@@ -11,7 +11,7 @@ const DepartmentRow = ({ department, onDelete }) => {
     if (onDelete) {
       onDelete(department.id);
     }
-  }, [onDelete]);
+  }, [onDelete, department.id]);
 
   return (
     <TableRow>
