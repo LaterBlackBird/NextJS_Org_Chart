@@ -1,10 +1,9 @@
-import React from 'react';
-import styles from '../../styles/Titles.module.css'
+import JobTitleForm from '../../components/organisms/JobTitleForm';
 
-const TitleForm = () => {
+const NewTitleForm = () => {
   return (
-    <div className={styles.titles}>Title Form</div>
+    <JobTitleForm />
   )
 }
 
-export default TitleForm
+export default NewTitleForm

@@ -7,10 +7,8 @@ const DepartmentTableHead = () => {
   return (
     <TableHead>
       <TableRow>
-        <>
           <TableDataCell testID='table-header-department-name' content={'Department Name'} />
           <TableDataCell content={'Actions'} />
-        </>
       </TableRow>
     </TableHead>
   )

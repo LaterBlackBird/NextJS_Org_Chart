@@ -1,9 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import styles from '../../styles/Titles.module.css'
+import Table from '../../components/atoms/Table';
+import JobTitleTableHead from '../../components/molecules/JobTitleTableHead'
+import JobTitleTableBody from '../../components/molecules/JobTitleTableBody';
+import LoadingWheel from '../../components/atoms/LoadingWheel';
 
-const Titles = () => {
+import { getJobTitles } from '../../services/JobTitleService';
+
+
+export const getServerSideProps = async () => {
+  const data = await getJobTitles();
+  return {
+    props: { titles: data}
+  }
+}
+
+const Titles = ({ titles }) => {
+  const router = useRouter();
+
+
+  const refreshData = () => {
+    router.replace(router.asPath);
+  }
+
   return (
-    <div className={styles.titles}>Titles</div>
+    <div className={styles.titles}>
+      <Table>
+          <JobTitleTableHead />
+          <JobTitleTableBody titles={titles} refreshData={refreshData}/>
+      </Table>
+    </div>
   )
 }
 

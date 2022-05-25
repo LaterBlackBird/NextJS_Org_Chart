@@ -1,18 +1,16 @@
 import React from 'react'
-import TableHead from '../../atoms/TableHead/TableHead'
-import TableDataCell from '../../atoms/TableData/TableDataCell'
-import TableRow from '../../atoms/TableRow/TableRow'
+import TableHead from '../atoms/TableHead'
+import TableDataCell from '../atoms/TableDataCell'
+import TableRow from '../atoms/TableRow'
 
 const JobTitleTableHead = () => {
   return (
-    <TableHead children={
-      <TableRow children={
-        <>
-          <TableDataCell testID='table-header-job-title' children={'Job Title'} />
-          <TableDataCell children={'Actions'} />
-        </>
-      } />
-    } />
+    <TableHead>
+      <TableRow>
+        <TableDataCell testID='table-header-job-title' content={'Job Title'} />
+        <TableDataCell content={'Actions'} />
+      </TableRow>
+    </TableHead>
   )
 }
 

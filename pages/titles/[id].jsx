@@ -1,10 +1,19 @@
-import React from 'react';
-import styles from '../../styles/Titles.module.css';
+import { getJobTitle } from "../../services/JobTitleService";
+import JobTitleForm from '../../components/organisms/JobTitleForm';
 
-const TitleDetails = () => {
+export const getServerSideProps = async ({ params }) => {
+  const { id } = params;
+  const data = await getJobTitle(id);
+
+  return {
+    props: { title: data}
+  }
+}
+
+const TitleDetail = ({ title }) => {
   return (
-    <div className={styles.titles}>Title Details</div>
+    <JobTitleForm title={title} />
   )
 }
 
-export default DepartmentDetails
+export default TitleDetail

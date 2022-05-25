@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { getJobTitles, deleteJobTitle } from "../../../services/JobTitleService";
+import React, { useCallback } from 'react';
+import { deleteJobTitle } from "../../services/JobTitleService";
 import { useToasts } from 'react-toast-notifications';
-import TableBody from '../../atoms/TableBody/TableBody';
-import JobTitleRow from './JobTitleRow/JobTitleRow';
+import TableBody from '../atoms/TableBody';
+import JobTitleRow from './JobTitleRow';
+import LoadingWheel from '../atoms/LoadingWheel';
 
-const JobTitleTableBody = ({ setShowLoadingWheel }) => {
-  const [jobTitles, setJobTitles] = useState([]);
+const JobTitleTableBody = ({ titles, setShowLoadingWheel, refreshData }) => {
   const { addToast } = useToasts()
 
   const showToast = (content, appearance) => {
@@ -15,38 +15,25 @@ const JobTitleTableBody = ({ setShowLoadingWheel }) => {
     });
   };
 
-  const loadAllTitles = async () => {
-    setShowLoadingWheel(true);
-    const getTitles = await getJobTitles();
-    setJobTitles(getTitles);
-    setShowLoadingWheel(false);
-  };
-
   const deleteTitle = useCallback( 
     async (titleId) => {
       try {
-        setShowLoadingWheel(true);
         await deleteJobTitle(titleId);
+        await refreshData();
         showToast('Job Title Deleted','success');
-        loadAllTitles();
-        setShowLoadingWheel(false);
       } catch (error) {
         showToast(error.message, 'error');
       }
     }
   , []);
-
-  useEffect(() => {
-    loadAllTitles();
-  },[]);
     
   return (
-    <TableBody children={
-      jobTitles &&
-        jobTitles.map(title => (
+    <TableBody>
+      {titles &&
+        titles.map(title => (
           <JobTitleRow key={title.id} onDelete={deleteTitle} title={title} />
-        ))
-    } />
+        ))}
+    </TableBody>
   )
 }
 
