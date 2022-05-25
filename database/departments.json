@@ -12,19 +12,5 @@
         "name": "Bench",
         "dateCreated": "2022-05-18T19:44:15.443Z",
         "dateUpdated": "2022-05-18T19:44:15.443Z"
-    },
-    {
-        "isActive": true,
-        "name": "TestWithWheel",
-        "id": 3,
-        "dateCreated": "2022-05-25T16:54:58.259Z",
-        "dateUpdated": "2022-05-25T16:54:58.259Z"
-    },
-    {
-        "isActive": true,
-        "name": "TestWithSuspense",
-        "id": 4,
-        "dateCreated": "2022-05-25T16:58:25.030Z",
-        "dateUpdated": "2022-05-25T16:58:25.030Z"
     }
 ]
