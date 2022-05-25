@@ -1,6 +1,6 @@
 import {doDelete, doGet, doPost, doPut} from "./ApiService";
 
-const serviceUrl = "/emps"
+const serviceUrl = "/employees"
 
 export const getEmployees = () => {
     return doGet(serviceUrl)

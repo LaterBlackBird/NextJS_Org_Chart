@@ -1,23 +1,19 @@
-import React, { useState} from 'react';
-import styles from './EmployeeTable.module.css';
-import Table from '../../atoms/Table/Table';
-import EmployeeTableHead from '../EmployeeTableHead/EmployeeTableHead';
-import EmployeeTableBody from '../EmployeeTableBody/EmployeeTableBody';
-import LoadingWheel from "../../atoms/LoadingWheel/LoadingWheel";
+import React, { Suspense, useState} from 'react';
+import styles from '../../styles/EmployeeTable.module.css';
+import Table from '../atoms/Table';
+import EmployeeTableHead from '../EmployeeTableHead';
+import EmployeeTableBody from '../EmployeeTableBody';
+import LoadingWheel from "../atoms/LoadingWheel";
 
 const EmployeeTable = () => {
-  const [showLoadingWheel, setShowLoadingWheel] = useState(false);
 
   return (
-    <>
-      {showLoadingWheel && <LoadingWheel />}
-      <Table children={
-        <>
+    <Suspense fallback={LoadingWheel}>
+      <Table>
           <EmployeeTableHead />
           <EmployeeTableBody setShowLoadingWheel={setShowLoadingWheel}/>
-        </>
-      } />
-    </>
+      </Table>
+    </Suspense>
   );
 };
 
