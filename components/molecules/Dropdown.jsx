@@ -1,14 +1,11 @@
-import React from 'react';
-import styles from './Dropdown.module.css';
-import Label from '../../atoms/Label/Label';
-import Select from '../../atoms/Select/Select';
+import styles from '../../styles/Dropdown.module.css';
+import Label from '../atoms/Label';
+import Select from '../atoms/Select';
 
 const Dropdown = ({ text, value, onChange, testID, name, options }) => {
   return (
     <div className={styles.dropdown}>
-      <Label
-        text={text}
-        children={
+      <Label text={text}>
           <Select 
             name={name}
             testID={testID}
@@ -16,8 +13,7 @@ const Dropdown = ({ text, value, onChange, testID, name, options }) => {
             onChange={onChange}
             options={options}
           />
-        }
-      />
+      </Label>
     </div>
   )
 }

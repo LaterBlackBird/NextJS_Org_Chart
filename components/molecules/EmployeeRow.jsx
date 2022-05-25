@@ -11,7 +11,7 @@ const EmployeeRow = ({ onDelete, employee}) => {
     if (onDelete) {
       onDelete(employee.id);
     }
-  }, [onDelete]);
+  }, [employee.id, onDelete]);
 
 
   return (
