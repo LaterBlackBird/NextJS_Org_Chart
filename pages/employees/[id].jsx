@@ -23,7 +23,7 @@ export const getServerSideProps = async ({ params }) => {
 const EmployeeDetails = ({ departments, titles, employees, employee }) => {
   return (
     <Suspense fallback={<LoadingWheel />}>
-      <EmployeeForm departments={departments} titles={titles} employees={employees}/>
+      <EmployeeForm departments={departments} titles={titles} employees={employees} employee={employee}/>
     </Suspense>
   )
 }
