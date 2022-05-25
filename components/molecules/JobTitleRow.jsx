@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react';
-import styles from './JobTitleRow.module.css';
-import Hyperlink from '../../atoms/Hyperlink/Hyperlink';
-import Button from '../../atoms/Button/Button';
-import TableRow from '../../atoms/TableRow/TableRow';
-import TableDataCell from '../../atoms/TableData/TableDataCell';
+import styles from '../../styles/JobTitleRow.module.css';
+import Hyperlink from '../atoms/Hyperlink';
+import Button from '../atoms/Button';
+import TableRow from '../atoms/TableRow';
+import TableDataCell from '../atoms/TableDataCell';
 
 const JobTitleRow = ({ title, onDelete }) => {
 
@@ -11,13 +11,14 @@ const JobTitleRow = ({ title, onDelete }) => {
     if (onDelete) {
       onDelete(title.id);
     }
-  }, [onDelete]);
+  }, [onDelete, title.id]);
 
   return (
-    <TableRow children={
-      <>
-        <TableDataCell testID={`table-row-${title.id}-column-job-title`} children={title.name} />
-        <TableDataCell children={
+    <TableRow>
+        <TableDataCell 
+          testID={`table-row-${title.id}-column-job-title`}
+          content={title.name} />
+        <TableDataCell content={
           <>
             <Hyperlink 
               to={`/titles/${title.id}`}
@@ -32,8 +33,7 @@ const JobTitleRow = ({ title, onDelete }) => {
             />
           </>
         } />
-      </>
-    } />
+    </TableRow>
 
   )
 }

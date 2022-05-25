@@ -67,33 +67,28 @@ const JobTitleForm = () => {
   return (
     <div className={styles.jobTitleForm}>
       {showLoadingWheel && <LoadingWheel />}
-      <Form
-        onSubmit={submitNewJobTitle}
-        children={
-          <>
-            <InputField 
-              text='Job Title'
-              onChange={updateState}
-              testID='create-job-title-name'
-              name='name'
-              value={state.name}
-            />
+      <Form onSubmit={submitNewJobTitle}>
+        <InputField 
+          text='Job Title'
+          onChange={updateState}
+          testID='create-job-title-name'
+          name='name'
+          value={state.name}
+        />
 
-            <Checkbox 
-              text='Is Active?'
-              checked={state.isActive}
-              onChange={updateState}
-              name='isActive'
-            />
+        <Checkbox 
+          text='Is Active?'
+          checked={state.isActive}
+          onChange={updateState}
+          name='isActive'
+        />
 
-            <Button
-              testID='create-job-title-save-button' 
-              onClick={submitNewJobTitle}
-              text={'Save'}
-            />
-          </>
-        }
-      />
+        <Button
+          testID='create-job-title-save-button' 
+          onClick={submitNewJobTitle}
+          text={'Save'}
+        />
+      </Form>
     </div>
   );
 };

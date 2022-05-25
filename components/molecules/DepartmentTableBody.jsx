@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { getActiveDepartments, deleteDepartment } from '../../services/DepartmentService';
+import React, { useCallback } from 'react';
+import { deleteDepartment } from '../../services/DepartmentService';
 import { useToasts } from 'react-toast-notifications';
 import TableBody from '../atoms/TableBody';
 import DepartmentRow from './DepartmentRow';

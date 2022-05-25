@@ -6,7 +6,7 @@ import DepartmentTableHead from '../../components/molecules/DepartmentTableHead'
 import DepartmentTableBody from '../../components/molecules/DepartmentTableBody';
 import LoadingWheel from '../../components/atoms/LoadingWheel';
 
-import { getActiveDepartments, deleteDepartment } from '../../services/DepartmentService';
+import { getActiveDepartments } from '../../services/DepartmentService';
 
 
 export const getServerSideProps = async () => {

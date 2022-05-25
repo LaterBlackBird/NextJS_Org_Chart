@@ -1,9 +1,9 @@
 const fs = require('fs');
-let departments = require('../../../database/departments.json')
+let titles = require('../../../database/titles.json')
 
-export const departmentsRepo = {
-  getById: id => departments.find(x => x.id.toString() === id.toString()),
-  find: x => departments.find(x),
+export const titlesRepo = {
+  getById: id => titles.find(x => x.id.toString() === id.toString()),
+  find: x => titles.find(x),
   update,
   delete: _delete
 };
@@ -13,42 +13,42 @@ export default function handler(req, res) {
   const { id } = req.query;
 
   if (req.method === 'GET') {
-    const data = departmentsRepo.getById(id);
+    const data = titlesRepo.getById(id);
     res.status(200).json(data)
   }
 
   if (req.method === 'PUT') {
     const params = req.body;
-    const data = departmentsRepo.update(id, params);
+    const data = titlesRepo.update(id, params);
     res.status(202).json(data)
   }
 
   if (req.method === 'DELETE') {
-    departmentsRepo.delete(id)
-    res.status(202).json(`department ${id} was deleted`)
+    titlesRepo.delete(id)
+    res.status(202).json(`title ${id} was deleted`)
   }
 }
 
 function update(id, params) {
-  const department = departments.find(x => x.id.toString() === id.toString());
+  const title = titles.find(x => x.id.toString() === id.toString());
 
   // set date updated
-  department.dateUpdated = new Date().toISOString();
+  title.dateUpdated = new Date().toISOString();
 
   // update and save
-  Object.assign(department, params);
+  Object.assign(title, params);
   saveData();
-  return department;
+  return title;
 }
 
 function _delete(id) {
-    // filter out deleted department and save
-    departments = departments.filter(x => x.id.toString() !== id.toString());
+    // filter out deleted title and save
+    titles = titles.filter(x => x.id.toString() !== id.toString());
     saveData();
     return null;
 }
 
 // private helper functions
 function saveData() {
-    fs.writeFileSync('database/departments.json', JSON.stringify(departments, null, 4));
+    fs.writeFileSync('database/titles.json', JSON.stringify(titles, null, 4));
 }

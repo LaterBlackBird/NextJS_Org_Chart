@@ -11,12 +11,10 @@ const JobTitleTable = () => {
   return (
     <>
       {showLoadingWheel && <LoadingWheel />}
-      <Table children={
-        <>
+      <Table>
           <JobTitleTableHead />
-          <JobTitleTableBody setShowLoadingWheel={setShowLoadingWheel}/>
-        </>      
-      } />
+          <JobTitleTableBody setShowLoadingWheel={setShowLoadingWheel}/>    
+      </Table>
     </>
   );
 };
