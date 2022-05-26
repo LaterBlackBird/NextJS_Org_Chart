@@ -151,5 +151,81 @@
         "id": 3,
         "dateCreated": "2022-05-26T16:12:35.513Z",
         "dateUpdated": "2022-05-26T16:12:35.513Z"
+    },
+    {
+        "department": {
+            "id": 2,
+            "isActive": "true",
+            "name": "Bench",
+            "dateCreated": "2022-05-18T19:44:15.443Z",
+            "dateUpdated": "2022-05-18T19:44:15.443Z"
+        },
+        "firstName": "Emrah",
+        "jobTitle": {
+            "isActive": true,
+            "name": "Developer I",
+            "id": 3,
+            "dateCreated": "2022-05-26T15:20:45.405Z",
+            "dateUpdated": "2022-05-26T15:20:45.405Z"
+        },
+        "lastName": "Isik",
+        "manager": {
+            "department": {
+                "id": 2,
+                "isActive": "true",
+                "name": "Bench",
+                "dateCreated": "2022-05-18T19:44:15.443Z",
+                "dateUpdated": "2022-05-18T19:44:15.443Z"
+            },
+            "firstName": "Craig",
+            "jobTitle": {
+                "id": 2,
+                "isActive": "true",
+                "name": "Delivery Manager",
+                "dateCreated": "2022-05-18T19:44:15.443Z",
+                "dateUpdated": "2022-05-18T19:44:15.443Z"
+            },
+            "lastName": "Salajan",
+            "manager": {
+                "department": {
+                    "id": 1,
+                    "isActive": "true",
+                    "name": "Delivery",
+                    "dateCreated": "2022-05-18T19:35:54.731Z",
+                    "dateUpdated": "2022-05-18T19:42:46.358Z"
+                },
+                "firstName": "Mark",
+                "jobTitle": {
+                    "id": 1,
+                    "isActive": "true",
+                    "name": "CEO",
+                    "dateCreated": "2022-05-18T19:35:54.731Z",
+                    "dateUpdated": "2022-05-18T19:42:46.358Z"
+                },
+                "lastName": "Ortung",
+                "manager": {},
+                "middleInitial": "A",
+                "email": "mortung@nexient.com",
+                "isActive": true,
+                "isManager": false,
+                "id": 1,
+                "dateCreated": "2022-05-26T15:54:04.075Z",
+                "dateUpdated": "2022-05-26T15:54:04.075Z"
+            },
+            "middleInitial": "A",
+            "email": "csalajan@nexient.com",
+            "isActive": true,
+            "isManager": false,
+            "id": 2,
+            "dateCreated": "2022-05-26T15:56:24.251Z",
+            "dateUpdated": "2022-05-26T16:07:59.261Z"
+        },
+        "middleInitial": "A",
+        "email": "eisik@nexient.com",
+        "isActive": true,
+        "isManager": false,
+        "id": 4,
+        "dateCreated": "2022-05-26T19:06:23.276Z",
+        "dateUpdated": "2022-05-26T19:06:23.276Z"
     }
 ]

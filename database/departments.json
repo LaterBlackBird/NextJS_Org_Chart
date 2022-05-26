@@ -12,5 +12,12 @@
         "name": "Bench",
         "dateCreated": "2022-05-18T19:44:15.443Z",
         "dateUpdated": "2022-05-18T19:44:15.443Z"
+    },
+    {
+        "isActive": true,
+        "name": "Accounting",
+        "id": 3,
+        "dateCreated": "2022-05-26T19:28:18.997Z",
+        "dateUpdated": "2022-05-26T19:28:18.997Z"
     }
 ]

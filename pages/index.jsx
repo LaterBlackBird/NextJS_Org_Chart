@@ -1,11 +1,28 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Layout from '../components/molecules/Layout'
-import styles from '../styles/Home.module.css'
-import Departments from './departments'
+import styles from "../styles/OrgChart.module.css";
 
-export default function Home() {
-  return (
-    <div className={styles.content}> Home </div>
-  )
+import { getTopEmployee } from "../services/EmployeeService";
+
+import EmployeeBranch from '../components/molecules/EmployeeBranch'
+
+
+export const getServerSideProps = async () => {
+  const data = await getTopEmployee();
+  return {
+    props: { topEmployee: data }
+  }
 }
+
+const OrgChart = ({ topEmployee }) => {
+
+  return (
+    <div className={styles.orgChartContainer}>
+      <p className={styles.orgChartTitle}>Nexient Org Chart</p>
+      {topEmployee &&
+        topEmployee.map((employee) => {
+          return <EmployeeBranch key={employee.id} employeeData={employee} />;
+        })}
+    </div>
+  );
+};
+
+export default OrgChart;

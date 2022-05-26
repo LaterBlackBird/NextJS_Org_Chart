@@ -1,10 +1,12 @@
 import React, { useEffect, useState} from 'react';
-import { getEmployeesByManagerId } from '../../../services/EmployeeService';
-import EmployeeCard from '../OrgChartEmployeeCard/EmployeeCard';
-import styles from './EmployeeBranch.module.css'
+import styles from '../../styles/EmployeeBranch.module.css'
+
+import { getEmployeesByManagerId } from '../../services/EmployeeService';
+
+import EmployeeCard from './EmployeeCard';
 
 
-const EmployeeBranch = ({employeeData}) => {
+const EmployeeBranch = ({ employeeData }) => {
     const [showEmployeesFlag, setShowEmployeesFlag] = useState(false);
     const [employeesManaged, setEmployeesManaged] = useState([]);
     const [hasEmployees, setHasEmployees] = useState(false);
