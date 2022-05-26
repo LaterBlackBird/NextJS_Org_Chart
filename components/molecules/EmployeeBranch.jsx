@@ -6,7 +6,7 @@ import { getEmployeesByManagerId } from '../../services/EmployeeService';
 import EmployeeCard from './EmployeeCard';
 
 
-const EmployeeBranch = ({employeeData}) => {
+const EmployeeBranch = ({ employeeData }) => {
     const [showEmployeesFlag, setShowEmployeesFlag] = useState(false);
     const [employeesManaged, setEmployeesManaged] = useState([]);
     const [hasEmployees, setHasEmployees] = useState(false);
