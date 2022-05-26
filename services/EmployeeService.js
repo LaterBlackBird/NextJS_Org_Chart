@@ -1,6 +1,6 @@
 import {doDelete, doGet, doPost, doPut} from "./ApiService";
 
-const serviceUrl = "/emps"
+const serviceUrl = "/employees"
 
 export const getEmployees = () => {
     return doGet(serviceUrl)
@@ -22,8 +22,8 @@ export const createEmployee = (employee) => {
     return doPost(serviceUrl, employee);
 }
 
-export const updateEmployee = (employee) => {
-    return doPut(serviceUrl, employee)
+export const updateEmployee = (employee, id) => {
+    return doPut(`${serviceUrl}/${id}`, employee)
 }
 
 export const deleteEmployee = (employeeId) => {

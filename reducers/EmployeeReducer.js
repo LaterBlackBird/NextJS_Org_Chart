@@ -12,7 +12,7 @@ export default (state, action) => {
             return updateState;
         case "updateAll":
             const completeUpdate = {...state};
-            for (const key in action.value){
+            for (const key in completeUpdate){
                 completeUpdate[key] = action.value[key]
             }
             return completeUpdate;

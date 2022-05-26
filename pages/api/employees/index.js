@@ -1,12 +1,12 @@
 const fs = require('fs');
 
 // users in JSON file for simplicity, store in a db for production applications
-let departments = require('../../../database/departments.json');
+let employees = require('../../../database/employees.json');
 
-export const departmentsRepo = {
-    getAll: () => departments,
-    getById: id => departments.find(x => x.id.toString() === id.toString()),
-    find: x => departments.find(x),
+export const employeesRepo = {
+    getAll: () => employees,
+    getById: id => employees.find(x => x.id.toString() === id.toString()),
+    find: x => employees.find(x),
     create
 };
 
@@ -14,33 +14,33 @@ export default function handler(req, res) {
   console.log(`${req.method} ${req.url}`)
   
   if (req.method === 'GET') {
-    const data = departmentsRepo.getAll();
+    const data = employeesRepo.getAll();
     res.status(200).json(data)
   }
 
   if (req.method === 'POST') {
     const data = req.body;
-    departmentsRepo.create(data)
+    employeesRepo.create(data)
     res.status(201).json('success')
   }
 }
 
-function create(dept) {
+function create(employee) {
     // generate new user id
-    dept.id = departments.length ? Math.max(...departments.map(x => x.id)) + 1 : 1;
+    employee.id = employees.length ? Math.max(...employees.map(x => x.id)) + 1 : 1;
 
     // set date created and updated
-    dept.dateCreated = new Date().toISOString();
-    dept.dateUpdated = new Date().toISOString();
+    employee.dateCreated = new Date().toISOString();
+    employee.dateUpdated = new Date().toISOString();
 
 
     // add and save user
-    departments.push(dept);
+    employees.push(employee);
     saveData();
-    return departments;
+    return employees;
 }
 
 // private helper functions
 function saveData() {
-    fs.writeFileSync('database/departments.json', JSON.stringify(departments, null, 4));
+    fs.writeFileSync('database/employees.json', JSON.stringify(employees, null, 4));
 }
