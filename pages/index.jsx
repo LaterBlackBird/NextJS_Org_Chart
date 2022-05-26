@@ -1,11 +1,43 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Layout from '../components/molecules/Layout'
-import styles from '../styles/Home.module.css'
-import Departments from './departments'
+import React, { useState, useEffect } from "react";
+import { useToasts } from 'react-toast-notifications'
+import { getTopEmployee } from "../services/EmployeeService";
+import EmployeeBranch from '../components/molecules/EmployeeBranch'
+import styles from "../styles/OrgChart.module.css";
 
-export default function Home() {
+const OrgChart = () => {
+
+  const [topLevelEmployee, setTopLevelEmployee] = useState([])
+  const { addToast } = useToasts()
+
+  const showToast = (content, appearance) => {
+    addToast(content, {
+      appearance,
+      autoDismiss: true,
+    });
+  };
+  
+  useEffect(() => {
+    const getTop = async () => {
+      try {
+        const topEmployees = await getTopEmployee();
+        setTopLevelEmployee(topEmployees)
+      } catch (error) {
+        showToast(error.message, 'error')
+      }
+    }
+    getTop();
+  }, [])
+
+  console.log(topLevelEmployee);
   return (
-    <div className={styles.content}> Home </div>
-  )
-}
+    <div className={styles.orgChartContainer}>
+      <p className={styles.orgChartTitle}>Nexient Org Chart</p>
+      {topLevelEmployee &&
+        topLevelEmployee.map((employee) => {
+          return <EmployeeBranch key={employee.id} employeeData={employee} />;
+        })}
+    </div>
+  );
+};
+
+export default OrgChart;
