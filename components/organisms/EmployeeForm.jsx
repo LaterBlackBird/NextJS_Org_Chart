@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 import styles from '../../styles/EmployeeForm.module.css'
 import { useToasts } from 'react-toast-notifications'
 
@@ -58,6 +58,16 @@ const EmployeeForm = ({ departments, titles, employees, employee }) => {
       showToast(error.message, 'error')
     }
   };
+
+  useEffect(() => {
+      if (employee) {
+        dispatch({type:'updateAll', value: employee});
+        dispatch({type:'update', field: 'manager', value: employees[employee.manager_id]});
+        dispatch({type:'update', field: 'department', value: departments[employee.department_id]});
+        dispatch({type:'update', field: 'jobTitle', value: titles[employee.title_id]});
+      }    
+  }, [])
+  
 
   return (
     <div className={styles.employeeForm}>
