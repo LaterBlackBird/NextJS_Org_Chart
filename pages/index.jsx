@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
 import styles from "../styles/OrgChart.module.css";
 
-import { useToasts } from 'react-toast-notifications'
 import { getTopEmployee } from "../services/EmployeeService";
 
 import EmployeeBranch from '../components/molecules/EmployeeBranch'
@@ -15,14 +13,6 @@ export const getServerSideProps = async () => {
 }
 
 const OrgChart = ({ topEmployee }) => {
-  const { addToast } = useToasts()
-
-  const showToast = (content, appearance) => {
-    addToast(content, {
-      appearance,
-      autoDismiss: true,
-    });
-  };
 
   return (
     <div className={styles.orgChartContainer}>
