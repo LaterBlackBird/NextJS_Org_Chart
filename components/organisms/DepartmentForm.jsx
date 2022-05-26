@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect, useState, Suspense } from "react";
+import React, { useReducer, useEffect } from "react";
 import styles from '../../styles/DepartmentForm.module.css'
 import { useToasts } from 'react-toast-notifications';
 import { createDepartment, updateDepartment } from "../../services/DepartmentService";
@@ -7,7 +7,6 @@ import Form from '../../components/atoms/Form';
 import InputField from '../../components/molecules/InputField';
 import Checkbox from '../../components/molecules/Checkbox';
 import Button from '../../components/atoms/Button';
-import LoadingWheel from "../../components/atoms/LoadingWheel";
 
 const DepartmentForm = ({ department }) => {
   const [state, dispatch] = useReducer(deptReducer, initialDepartment)
@@ -34,7 +33,7 @@ const DepartmentForm = ({ department }) => {
   const submitNewDepartment = async (e) => {
     e.preventDefault();
     try {
-      department ? await updateDepartment(state) : await createDepartment(state);
+      department ? await updateDepartment(department.id, state) : await createDepartment(state);
       dispatch({type:'reset'});
       showToast('Department Saved','success');
     } catch (error) {
@@ -44,7 +43,6 @@ const DepartmentForm = ({ department }) => {
 
 
   return (
-    <Suspense fallback={<LoadingWheel />}>
     <div className={styles.departmentForm}>
       <Form onSubmit={submitNewDepartment}>
             <InputField 
@@ -69,7 +67,6 @@ const DepartmentForm = ({ department }) => {
             />
       </Form>
     </div>
-    </Suspense>
   )
 }
 
