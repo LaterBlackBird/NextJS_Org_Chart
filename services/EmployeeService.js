@@ -22,8 +22,8 @@ export const createEmployee = (employee) => {
     return doPost(serviceUrl, employee);
 }
 
-export const updateEmployee = (employee) => {
-    return doPut(serviceUrl, employee)
+export const updateEmployee = (employee, id) => {
+    return doPut(`${serviceUrl}/${id}`, employee)
 }
 
 export const deleteEmployee = (employeeId) => {

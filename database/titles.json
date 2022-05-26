@@ -12,5 +12,19 @@
         "name": "Delivery Manager",
         "dateCreated": "2022-05-18T19:44:15.443Z",
         "dateUpdated": "2022-05-18T19:44:15.443Z"
+    },
+    {
+        "isActive": true,
+        "name": "Developer I",
+        "id": 3,
+        "dateCreated": "2022-05-26T15:20:45.405Z",
+        "dateUpdated": "2022-05-26T15:20:45.405Z"
+    },
+    {
+        "isActive": true,
+        "name": "Developer II",
+        "id": 4,
+        "dateCreated": "2022-05-26T15:20:58.266Z",
+        "dateUpdated": "2022-05-26T15:20:58.266Z"
     }
 ]

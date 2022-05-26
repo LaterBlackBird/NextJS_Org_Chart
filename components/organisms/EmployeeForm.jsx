@@ -3,6 +3,7 @@ import styles from '../../styles/EmployeeForm.module.css'
 import { useToasts } from 'react-toast-notifications'
 
 import employeeReducer, { initialEmployee } from "../../reducers/EmployeeReducer";
+import { createEmployee, updateEmployee } from "../../services/EmployeeService";
 
 import Form from '../atoms/Form';
 import InputField from '../molecules/InputField';
@@ -45,10 +46,9 @@ const EmployeeForm = ({ departments, titles, employees, employee }) => {
     
     try {
       if (employee) {
-        await updateEmployee(state)
+        await updateEmployee(state, employee.id)
       } 
       else {
-        dispatch({type:'createNewData'})
         await createEmployee(state);
       }
 
@@ -62,9 +62,6 @@ const EmployeeForm = ({ departments, titles, employees, employee }) => {
   useEffect(() => {
       if (employee) {
         dispatch({type:'updateAll', value: employee});
-        dispatch({type:'update', field: 'manager', value: employees[employee.manager_id]});
-        dispatch({type:'update', field: 'department', value: departments[employee.department_id]});
-        dispatch({type:'update', field: 'jobTitle', value: titles[employee.title_id]});
       }    
   }, [])
   
