@@ -1,8 +1,8 @@
-import { fireEvent, getByAltText, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import DepartmentRow from "../components/molecules/DepartmentRow";
 
-describe('Department Row', () => {
+describe('Departments List', () => {
   let expectedProps;
   
   beforeEach(() => {
@@ -35,6 +35,7 @@ describe('Department Row', () => {
 
     expect(editLink).toBeVisible();
     expect(deleteButton).toBeVisible();
-  })
+  });
+
 });
 
