@@ -4,9 +4,11 @@ import DepartmentForm from "../components/organisms/DepartmentForm";
 
 describe('Department Form', () => {
   let newDept, existingDept;
-
+  
   beforeEach(() => {
-    jest.useFakeTimers();
+    const mockFetch = Promise.resolve({ json: () => Promise.resolve('success') });
+    global.fetch = jest.fn().mockImplementation(() => mockFetch);
+
     newDept = 'New Dept Test';
 
     existingDept = {
@@ -42,12 +44,10 @@ describe('Department Form', () => {
       await act(async () => {
         fireEvent.change(input, {target: {value: 'test'}});
         fireEvent.click(saveButton);
-        expect(input).toHaveTextContent('test')
       })
-
-
-      // const successToast = screen.getByText(/department saved/i)
-      // expect(successToast).toBeVisible();
+      
+      const successToast = screen.getByText(/department saved/i)
+      expect(successToast).toBeVisible();
 
      })
 })
