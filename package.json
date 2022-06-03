@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --watch"
+    "test": "jest --watch --coverage[=true]"
   },
   "dependencies": {
     "jest-environment-jsdom": "^28.1.0",
